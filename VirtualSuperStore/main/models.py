@@ -99,7 +99,6 @@ class EarphonesProduct(Product):
     type = models.CharField(max_length=30, verbose_name='Тип')
     construction = models.CharField(max_length=30, verbose_name='Конструкция')
     brand = models.CharField(max_length=30, verbose_name='Брэнд')
-
     def __str__(self):
         return "{} : {}".format(self.category.name, self.title)
 
@@ -153,4 +152,4 @@ class Customer(models.Model):
     adress = models.CharField(max_length=255, verbose_name='Адрес')
 
     def __str__(self):
-        return 'Покупатель: {} {}'.format(self.user.firs_name, self.user.last_name)
+        return 'Покупатель: {} {}'.format(self.user.first_name, self.user.last_name)
