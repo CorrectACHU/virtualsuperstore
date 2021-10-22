@@ -1,10 +1,10 @@
-list1 = [1,2,3,41]
-A = iter(list1)
+class Life:
+    def __init__(self, name='unknown'):
+        print('Hello', name)
+        self.name = name
+    def __del__(self):
+        print('Goodbye', self.name)
 
-def generator(a):
-    x = a[1]
-    a = a[1:]
-    yield print(x+1)
-    return print(x+1)
-
-generator(list1)
+brian = Life('Brian')
+brian = 'kevin'
+loser = Life('loretta')

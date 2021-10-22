@@ -26,19 +26,19 @@
   {% for item in cart.products.all %}
         <tr>
           <th scope="row">{{ item.content_object.title }}</th>
-          <td  class="w-25" ><img src="{{item.content_object.image.url}}" class="img-fluid" alt=""></td>
+          <td  class="w-25" ><img src="{{item.product.image.url}}" class="img-fluid" alt=""></td>
           <td>{{ item.content_object.price }}</td>
           <td>
-            <form action="{% url 'change_qty' ct_model=item.content_object.get_model_name slug=item.content_object.slug %}" method="POST" >
+            <form action="{% url 'change_qty' slug=item.product.slug %}" method="POST" >
             {% csrf_token %}
-            <input type="nubmer"  class="form-control" style="width: 70px;" name="qty" min="1" value="{{ item.qty }}">
+            <input type="number"  class="form-control" style="width: 70px;" name="qty" min="1" value="{{ item.qty }}">
               <br>
               <input type="submit" class="btn btn-primary" value="Изменить количество">
             </form>
           </td>
           <td>{{ item.final_price }} BYN</td>
           <td>
-            <a href="{% url 'delete_from_cart' ct_model=item.content_object.get_model_name slug=item.content_object.slug %}"><button class="btn btn-danger">
+            <a href="{% url 'delete_from_cart' slug=item.product.slug %}"><button class="btn btn-danger">
               Удалить товар</button></a>
           </td>
         </tr>

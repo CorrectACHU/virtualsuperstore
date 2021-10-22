@@ -20,9 +20,6 @@
         <hr>
         <a href="{% url 'add_to_cart' ct_model=ct_model slug=product.slug %}"><button class="btn btn-danger">Купить</button></a>
     </div>
-    <p class="mt-4">Характеристики: </p>
-
-    {{ product|product_spec }}
 </div>
 
 {% endblock content %}
